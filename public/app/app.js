@@ -9,7 +9,7 @@ angular.module('userApp', [
     'mainCtrl',
     'userCtrl',
     'userService'
-    ]);
+    ])
 
 // ngAnimate- to add animations to all our angular directives (ngShow/ngHide)
 // app.routes- routing our application
