@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="page-header">
+    <h1>
+        Users
+        <a href="/users/create" class="btn btn-default"><span class="glyphicon glyphicon-plus">New User</span></a>
+    </h1>
+</div>
 
-</body>
-</html>
+<!-- LOADING MESSAGE -->
+<div class="jumbotron text-center" ng-show="user.processing">
+    <span class="glyphicon glyphicon-repeat spinner">
+        <p>Loading users...</p>
+    </span>
+</div>
+
+<table class="table table-bordered table-striped" ng-show="user.users">
+    <thead>
+        <tr> <!-- table row -->
+            <th>_id</th> <!-- table heading -->
+            <th>Name</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+
+    <!-- LOOP OVER THE USER -->
+    <tr ng-repeat="person in user.users">
+        <td>{{ person._id }}</td> <!-- table data -->
+        <td>{{ person.name }}</td>
+        <td>{{ person.username }}</td>
+        <td class="col-sm-2">
+            <a ng-href="/users/{{ person._id }}" class="btn btn-danger">Edit</a>
+            <a href="#" ng-click="user.deleteUser(person._id)" class="btn btn-primary">Delete</a>
+        </td>
+    </tr>
+</table>

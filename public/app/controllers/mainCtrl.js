@@ -1,6 +1,8 @@
 /**
  * Created by jackklein on 6/15/16.
  */
+
+// think about renaming to controllers.main (convention)
 angular.module('mainCtrl', [])
 
 .controller('mainController', function($rootScope, $location, Auth) {
@@ -34,6 +36,7 @@ angular.module('mainCtrl', [])
                 vm.processing = false;
 
                 // if a user successfully logs in, redirect to users page
+                // not attaching the token to the header, so can't go to path
                 if(data.success)
                     $location.path('/users');
                 else
